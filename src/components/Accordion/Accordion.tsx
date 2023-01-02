@@ -1,17 +1,28 @@
 import { OmitProps } from 'antd/lib/transfer/ListBody';
 import React from 'react';
-
-function Accordion(props: any) {
+type AccordionPropsType = {
+    titleValue: string;
+    collapsed:boolean;
+}
+function Accordion(props: AccordionPropsType) {
     console.log('Accordion rendering')
+    if (props.collapsed === true) {
+        return <div>
+            <AccordionTitle title={props.titleValue} />
+        </div>
+    }
     return (
         <div>
-            <AccordionTitle title = {props.titleValue}/>
-            <AccordionBody />
-        </div>
+        <AccordionTitle title={props.titleValue} />
+        <AccordionBody />
+    </div>
     )
 }
 
-function AccordionTitle(props: any) {
+type AccorionTitlePropsType = {
+    title: string;
+}
+function AccordionTitle(props: AccorionTitlePropsType) {
     console.log('rendering AccordionTitle')
     return (
         <h3>{props.title}</h3>
