@@ -1,19 +1,20 @@
+import { OmitProps } from 'antd/lib/transfer/ListBody';
 import React from 'react';
 
-function Accordion() {
+function Accordion(props: any) {
     console.log('Accordion rendering')
     return (
         <div>
-            <AccordionTitle />
+            <AccordionTitle title = {props.titleValue}/>
             <AccordionBody />
         </div>
     )
 }
 
-function AccordionTitle() {
+function AccordionTitle(props: any) {
     console.log('rendering AccordionTitle')
     return (
-        <h3>Menu</h3>
+        <h3>{props.title}</h3>
     )
 }
 
